@@ -1,0 +1,11 @@
+{
+  "event_id": "a8dc19e4-b341-4d73-9ade-521a3069fe01",
+  "event_type": "enrollment.created",
+  "schema_version": 1,
+  "occurred_at": "2026-10-26T14:00:00Z",
+  "data": {
+    "student_id": "STU-DEMO-0001",
+    "course_id": "CRS-DEMO-0101",
+    "term": "2026-FALL"
+  }
+}

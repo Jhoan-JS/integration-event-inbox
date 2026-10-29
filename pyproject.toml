@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling==1.30.1"]
+build-backend = "hatchling.build"
+
+[project]
+name = "integration-event-inbox"
+version = "0.1.0"
+description = "A durable, idempotent FastAPI inbox for synthetic enterprise events"
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+dependencies = ["fastapi==0.162.0", "uvicorn==0.54.0"]
+
+[dependency-groups]
+dev = ["httpx2==2.16.0", "pytest==9.2.0", "pytest-cov==7.1.0", "ruff==0.17.3", "build==1.6.1"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/event_inbox"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra --strict-markers"
+filterwarnings = ["error"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
