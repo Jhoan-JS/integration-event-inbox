@@ -1,5 +1,7 @@
 # Integration Event Inbox
 
+[![Backend checks](https://github.com/Jhoan-JS/integration-event-inbox/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/Jhoan-JS/integration-event-inbox/actions/workflows/ci.yml)
+
 A small backend demonstration of reliable event ingestion with **Python,
 FastAPI and SQLite**. A fictional academic registry sends enrollment events;
 the API validates them, commits them to durable storage, and makes retries safe.
@@ -26,7 +28,8 @@ student system, create an enrollment, or claim exactly-once delivery.
 ## Run locally
 
 Requirements: **Python 3.12** and [uv](https://docs.astral.sh/uv/getting-started/installation/).
-The package allows Python 3.12–3.14; the local verification was performed on 3.12.
+The package allows Python 3.12–3.14. Python 3.12 is verified on Linux and Windows
+in [GitHub Actions](https://github.com/Jhoan-JS/integration-event-inbox/actions/runs/40934068390).
 No hosted accounts, containers or external database are needed.
 
 Extract this project or clone the repository (GitHub access is required while private):
@@ -199,7 +202,7 @@ your normal database. It requires no API keys or hosted services from you.
 The pytest suite covers validation, authentication, replay/conflict semantics,
 restart persistence, concurrent retries, database lock contention, rollback at
 commit, failed inserts, safe errors/logs, configuration and OpenAPI. GitHub Actions
-runs the checks on Python 3.12 on Linux and Windows when the workflow is uploaded.
+runs the checks on Python 3.12 on Linux and Windows.
 See [verification record](docs/verification.md) for checks actually run here.
 
 Regenerate or check the OpenAPI snapshot:

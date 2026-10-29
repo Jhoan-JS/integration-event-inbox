@@ -10,13 +10,17 @@ Target: `Jhoan-JS/integration-event-inbox`. Initial visibility: **private**.
 - [x] Create the new private GitHub repository.
 - [x] Confirm private visibility after creation.
 - [x] Push the reviewed implementation.
-- [ ] Check GitHub Actions results, including Windows.
+- [x] Check GitHub Actions results, including Windows.
 - [ ] Owner reviews the code and can explain transactions, retries and error cases.
 - [ ] Obtain the owner's explicit authorization before making the repository public.
 - [ ] After publication, separately approve linking it from the GitHub profile.
 
 The owner authorized creation and upload to the private repository on 2026-10-29.
 Public visibility remains subject to a separate explicit approval.
+
+[Backend checks run #2](https://github.com/Jhoan-JS/integration-event-inbox/actions/runs/40934068390)
+passed on Linux and Windows, including pytest, Ruff, OpenAPI snapshot, HTTP smoke
+test and package build.
 
 Before using this in an interview, reproduce the 201 → 200 → 409 flow, demonstrate
 that a restart preserves the receipt, and explain why a receipt does not mean

@@ -79,12 +79,18 @@ repository. Repository creation, implementation upload and private visibility
 were confirmed. The first hosted run passed all checks on Linux and all 47 pytest
 tests on Windows. Its Windows smoke test exposed an unclosed SQLite connection
 in the test script's cleanup; the connection now closes explicitly before the
-temporary directory is removed. A fresh cross-platform CI run will verify the fix.
+temporary directory is removed.
+
+The [second hosted run](https://github.com/Jhoan-JS/integration-event-inbox/actions/runs/40934068390)
+on commit `da1fe1ac109b69ae74e566afe6f1e654ea8f8469` completed successfully on
+**ubuntu-latest and windows-latest**, with Python 3.12. Both jobs passed locked
+dependency installation, Ruff lint and formatting, all 47 pytest cases, OpenAPI
+snapshot comparison, the real HTTP smoke test with restart and safe-error logs,
+and source/wheel builds. The final documentation update does not change the
+verified application, tests, scripts, lock file or workflow.
 
 ## Unverified boundaries
 
-- The final cross-platform hosted result is pending after the Windows smoke
-  cleanup fix. No unrelated repository was repurposed.
 - Python 3.13/3.14 execution is unverified; CI uses Python 3.12.
 - Production load, multiple hosts, external systems and external side effects:
   intentionally outside this demo's scope. No external integration is claimed.
