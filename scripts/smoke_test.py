@@ -10,7 +10,7 @@ import subprocess
 import sys
 import tempfile
 import time
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 from pathlib import Path
 from threading import Event
 from urllib.error import HTTPError, URLError
@@ -130,7 +130,10 @@ def main():
         with running_server(port, environment, logs) as base:
             assert request(base, location, key=key)[2] == receipt
             assert request(base, "/v1/events", key=key, payload=event)[0] == 200
-            with sqlite3.connect(environment["INBOX_DATABASE_PATH"]) as connection:
+            with (
+                closing(sqlite3.connect(environment["INBOX_DATABASE_PATH"])) as connection,
+                connection,
+            ):
                 connection.execute(
                     "UPDATE events SET payload_json = ?", ('{"private":"smoke-sensitive-marker"}',)
                 )

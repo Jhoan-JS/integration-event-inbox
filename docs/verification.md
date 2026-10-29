@@ -75,15 +75,17 @@ of the fixes; their regression tests and the full suite verified the corrections
 ## Remote verification
 
 On 2026-10-29, the owner authorized creation and upload to the private GitHub
-repository. Repository creation succeeded and private visibility was confirmed.
-Hosted Actions results are pending the initial implementation upload.
+repository. Repository creation, implementation upload and private visibility
+were confirmed. The first hosted run passed all checks on Linux and all 47 pytest
+tests on Windows. Its Windows smoke test exposed an unclosed SQLite connection
+in the test script's cleanup; the connection now closes explicitly before the
+temporary directory is removed. A fresh cross-platform CI run will verify the fix.
 
 ## Unverified boundaries
 
-- Remote implementation upload and hosted Actions execution are pending. No
-  unrelated repository was repurposed.
-- Windows and Python 3.13/3.14 execution: not run in this Linux environment. The
-  workflow is prepared for Linux and Windows on Python 3.12, pending remote CI.
+- The final cross-platform hosted result is pending after the Windows smoke
+  cleanup fix. No unrelated repository was repurposed.
+- Python 3.13/3.14 execution is unverified; CI uses Python 3.12.
 - Production load, multiple hosts, external systems and external side effects:
   intentionally outside this demo's scope. No external integration is claimed.
 

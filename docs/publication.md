@@ -9,7 +9,7 @@ Target: `Jhoan-JS/integration-event-inbox`. Initial visibility: **private**.
 - [x] Explain receipt semantics and limitations without production-readiness claims.
 - [x] Create the new private GitHub repository.
 - [x] Confirm private visibility after creation.
-- [ ] Push the reviewed implementation.
+- [x] Push the reviewed implementation.
 - [ ] Check GitHub Actions results, including Windows.
 - [ ] Owner reviews the code and can explain transactions, retries and error cases.
 - [ ] Obtain the owner's explicit authorization before making the repository public.
